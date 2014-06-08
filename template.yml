@@ -1,0 +1,19 @@
+image:
+  path: /Users/leninraj/Downloads/161895.3.jpg
+
+copyright:
+  text: WWW.DUGGOUT.COM
+  height: 100
+  width: 25
+  x_offset: 50
+  opacity: 0.6
+  font: Roboto
+
+caption:
+  text: Chris Gayle is playing his \n100th test match today!
+  font: Roboto
+  size: 45
+  color: white
+  stroke: Transparent
+  offset_x: 0
+  offset_y: 100
