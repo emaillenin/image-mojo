@@ -43,22 +43,27 @@ watermark_text.annotate(imgl, start_x, start_y, end_x - 5, end_y - 10, template.
   self.align = LeftAlign
 end
 
-caption_text = Magick::Draw.new
-caption_text.annotate(imgl, src.columns, src.rows, src.columns/2, src.rows/2, template.caption['text']) do
-  self.gravity = Magick::CenterGravity
-  self.pointsize = template.caption['size']
-  self.font_family = template.caption['font']
-  self.font_weight = Magick::BoldWeight
-  self.stroke = 'transparent'
-  self.fill = template.caption['color']
-  self.stroke = template.caption['stroke']
-  self.stroke_width = 1
-  # self.rotation = 270
-  self.kerning = 1
-  self.interline_spacing = 2.5
-  self.align = CenterAlign
+unless template.caption.nil?
+  caption_text = Magick::Draw.new
+  caption_text.annotate(imgl, src.columns, src.rows, src.columns/2 + template.caption['offset_x'], src.rows/2 + template.caption['offset_y'], template.caption['text']) do
+    self.gravity = Magick::CenterGravity
+    self.pointsize = template.caption['size']
+    self.font_family = template.caption['font']
+    self.font_weight = Magick::BoldWeight
+    self.stroke = 'transparent'
+    self.fill = template.caption['color']
+    self.stroke = template.caption['stroke']
+    self.stroke_width = 1
+    self.font_weight = Magick::BoldWeight
+    # self.rotation = 270
+    self.kerning = 1
+    self.interline_spacing = 7
+    self.align = CenterAlign
+  end
 end
 
-imgl.write("mojo_#{File.basename(template.image['path'])}")
+output = "#{File.dirname(template.image['path'])}/mojo_#{File.basename(template.image['path'])}"
+puts "Writing to #{output}"
+imgl.write(output)
 
 exit

@@ -1,0 +1,10 @@
+image:
+  path: /Users/leninraj/Downloads/mahela.jpg
+
+copyright:
+  text: WWW.DUGGOUT.COM
+  height: 100
+  width: 25
+  x_offset: 50
+  opacity: 0.6
+  font: Roboto
