@@ -18,15 +18,11 @@ end_y = (src.rows/2) + template.copyright['height']
 
 imgl.from_blob(File.open(template.image['path']).read)
 
-gc = Magick::Draw.new
-
-gc.fill_opacity(template.copyright['opacity'])
-
-gc.rectangle(start_x, start_y, end_x, end_y)
-
-gc.font(template.copyright['opacity'])
-
-gc.draw(imgl)
+copyright_box = Magick::Draw.new
+copyright_box.fill_opacity(template.copyright['opacity'])
+copyright_box.rectangle(start_x, start_y, end_x, end_y)
+copyright_box.font(template.copyright['font'])
+copyright_box.draw(imgl)
 
 imgl.alpha(Magick::ActivateAlphaChannel)
 
@@ -43,7 +39,32 @@ watermark_text.annotate(imgl, start_x, start_y, end_x - 5, end_y - 10, template.
   self.align = LeftAlign
 end
 
+# unless template.logo.nil?
+#   watermark_text = Magick::Draw.new
+#   watermark_text.annotate(imgl, start_x, start_y, end_x - 5, end_y - 10, template.logo['text']) do
+#     self.gravity = Magick::EastGravity
+#     self.pointsize = 15
+#     self.font_family = template.logo['font']
+#     self.font_weight = Magick::BoldWeight
+#     self.stroke = 'transparent'
+#     self.fill = 'white'
+#     self.kerning = 1
+#     self.align = LeftAlign
+#   end
+# end
+
 unless template.caption.nil?
+
+  if template.caption['background']
+    background_caption = Magick::Draw.new
+    background_caption.opacity(template.caption['background_opacity'])
+    background_caption.fill(template.caption['background_color'])
+    background_caption.rectangle(0, template.caption['background_start_y'], src.columns, template.caption['background_start_y'] + template.caption['background_height'])
+    background_caption.draw(imgl)
+    imgl.alpha(Magick::ActivateAlphaChannel)
+
+  end
+
   caption_text = Magick::Draw.new
   caption_text.annotate(imgl, src.columns, src.rows, src.columns/2 + template.caption['offset_x'], src.rows/2 + template.caption['offset_y'], template.caption['text']) do
     self.gravity = Magick::CenterGravity

@@ -1,19 +1,31 @@
 image:
-  path: /Users/leninraj/Downloads/161895.3.jpg
+  path: /Users/leninraj/Downloads/shakib.jpg
 
 copyright:
   text: WWW.DUGGOUT.COM
   height: 100
   width: 25
-  x_offset: 50
+  x_offset: 25
   opacity: 0.6
   font: Roboto
 
-caption:
-  text: Chris Gayle is playing his \n100th test match today!
+logo:
+  text: DuggOut.com
+  x_offset: 25
+  y_offset: 25
   font: Roboto
-  size: 45
+
+caption:
+  text: BANNED FOR SIX MONTHS
+  font: Roboto
+  size: 60
   color: white
-  stroke: Transparent
+  stroke: white
   offset_x: 0
-  offset_y: 100
+  offset_y: 200
+  background: true
+  background_color_1: rgba(12,133,199,0.3)
+  background_color: rgba(150,93,14,0.6)
+  background_opacity: 0.2
+  background_height: 100
+  background_start_y: 450
