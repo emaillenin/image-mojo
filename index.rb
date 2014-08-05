@@ -1,7 +1,7 @@
 require 'RMagick'
 include Magick
 
-require_relative 'src/template/image_mojo_template'
+Dir[File.dirname(__FILE__) + '/src/**/*.rb'].each { |file| require file }
 
 template = ImageMojoTemplate.new(ARGV[0])
 
@@ -39,52 +39,28 @@ watermark_text.annotate(imgl, start_x, start_y, end_x - 5, end_y - 10, template.
   self.align = LeftAlign
 end
 
-# unless template.logo.nil?
-#   watermark_text = Magick::Draw.new
-#   watermark_text.annotate(imgl, start_x, start_y, end_x - 5, end_y - 10, template.logo['text']) do
-#     self.gravity = Magick::EastGravity
-#     self.pointsize = 15
-#     self.font_family = template.logo['font']
-#     self.font_weight = Magick::BoldWeight
-#     self.stroke = 'transparent'
-#     self.fill = 'white'
-#     self.kerning = 1
-#     self.align = LeftAlign
-#   end
-# end
-
-unless template.caption.nil?
-
-  if template.caption['background']
-    background_caption = Magick::Draw.new
-    background_caption.opacity(template.caption['background_opacity'])
-    background_caption.fill(template.caption['background_color'])
-    background_caption.rectangle(0, template.caption['background_start_y'], src.columns, template.caption['background_start_y'] + template.caption['background_height'])
-    background_caption.draw(imgl)
-    imgl.alpha(Magick::ActivateAlphaChannel)
-
-  end
-
-  caption_text = Magick::Draw.new
-  caption_text.annotate(imgl, src.columns, src.rows, src.columns/2 + template.caption['offset_x'], src.rows/2 + template.caption['offset_y'], template.caption['text']) do
-    self.gravity = Magick::CenterGravity
-    self.pointsize = template.caption['size']
-    self.font_family = template.caption['font']
+unless template.hashtag.nil?
+  watermark_text = Magick::Draw.new
+  watermark_text.annotate(imgl, 0, 0, 10, 25, "##{template.hashtag['text']}") do
+    self.gravity = Magick::EastGravity
+    self.pointsize = 18
+    self.font_family = template.hashtag['font']
     self.font_weight = Magick::BoldWeight
     self.stroke = 'transparent'
-    self.fill = template.caption['color']
-    self.stroke = template.caption['stroke']
-    self.stroke_width = 1
-    self.font_weight = Magick::BoldWeight
-    # self.rotation = 270
+    self.fill = 'white'
     self.kerning = 1
-    self.interline_spacing = 7
-    self.align = CenterAlign
+    self.align = LeftAlign
   end
 end
 
 output = "#{File.dirname(template.image['path'])}/mojo_#{File.basename(template.image['path'])}"
-puts "Writing to #{output}"
-imgl.write(output)
+
+template.all_templates.keys.select { |key| key.to_s.start_with?('caption') }.each do |caption|
+  a = ImageAnnotate.new(src, imgl, template.all_templates[caption])
+  a.apply_template
+  puts "Writing to #{output}"
+  imgl.write(output)
+end
+
 
 exit

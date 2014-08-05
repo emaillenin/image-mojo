@@ -1,11 +1,13 @@
 require 'psych'
 class ImageMojoTemplate
 
-  attr_accessor :copyright, :caption, :image
+  attr_accessor :all_templates, :copyright, :caption, :image, :hashtag
   def initialize(config_file)
-    template = Psych.load(File.read(config_file))
-    @copyright = template['copyright']
-    @caption = template['caption']
-    @image = template['image']
+    puts "Using template file #{config_file}"
+    @all_templates = Psych.load(File.read(config_file))
+    @copyright = @all_templates['copyright']
+    @caption = @all_templates['caption']
+    @image = @all_templates['image']
+    @hashtag = @all_templates['hashtag']
   end
 end

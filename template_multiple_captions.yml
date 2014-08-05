@@ -1,0 +1,70 @@
+image:
+  path: /Users/leninraj/Downloads/virat.jpg
+
+copyright:
+  text: WWW.DUGGOUT.COM
+  height: 100
+  width: 25
+  x_offset: 25
+  opacity: 0.6
+  font: Roboto
+
+hashtag:
+  text: ENGvsIND
+  x_offset: 25
+  y_offset: 25
+  font: Roboto
+
+caption_player:
+  text: VIRAT KOHLI
+  font: Roboto
+  size: 80
+  color: white
+  stroke: white
+  offset_x: 0
+  offset_y: 422
+  background: true
+  background_color_brown: rgba(150,93,14,0.4)
+  background_color_white: rgba(225,225,243,0.4)
+  background_color_black: rgba(10,10,10,0.4)
+  background_color:  rgba(23,168,230,0.7) # blue
+  background_color_pink: rgba(150,14,93,0.5)
+  background_opacity: 0.2
+  background_height: 100
+  background_start_y: 990
+
+caption_1st_innings:
+  text: 1st MATCH - 1 AND 8
+  font: Roboto
+  size: 50
+  color: white
+  stroke: white
+  offset_x: 0
+  offset_y: 512
+  background: true
+  background_color: rgba(150,93,14,0.6) # brown
+  background_color_white: rgba(225,225,243,0.4)
+  background_color_black: rgba(10,10,10,0.4)
+  background_color_blue:  rgba(23,168,230,0.7) # blue
+  background_color_pink: rgba(150,14,93,0.5)
+  background_opacity: 0.2
+  background_height: 100
+  background_start_y: 1090
+
+caption_2nd_innings:
+  text: 2nd MATCH - 25 AND 0
+  font: Roboto
+  size: 50
+  color: white
+  stroke: white
+  offset_x: 0
+  offset_y: 612
+  background: true
+  background_color: rgba(150,93,14,0.6)
+  background_color_white: rgba(225,225,243,0.4)
+  background_color_black: rgba(10,10,10,0.4)
+  background_color_blue:  rgba(23,168,230,0.7) # blue
+  background_color_pink: rgba(150,14,93,0.5)
+  background_opacity: 0.2
+  background_height: 100
+  background_start_y: 1190
