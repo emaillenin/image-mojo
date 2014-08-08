@@ -47,7 +47,7 @@ unless template.hashtag.nil?
     self.font_family = template.hashtag['font']
     self.font_weight = Magick::BoldWeight
     self.stroke = 'transparent'
-    self.fill = 'white'
+    self.fill = template.hashtag['color']
     self.kerning = 1
     self.align = LeftAlign
   end
