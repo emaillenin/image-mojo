@@ -29,7 +29,7 @@ class ImageAnnotate
       self.font_weight = Magick::BoldWeight
       # self.rotation = 270
       self.kerning = 1
-      self.interline_spacing = 7
+      self.interline_spacing = caption['line_spacing'] || 5
       self.align = CenterAlign
     end
     @image_list

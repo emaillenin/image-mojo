@@ -1,6 +1,6 @@
 
 image:
-  path: /Users/leninraj/Downloads/samson.jpg
+  path: /Users/leninraj/Downloads/cook.jpg
 
 copyright:
   text: WWW.DUGGOUT.COM
@@ -15,22 +15,24 @@ hashtag:
   x_offset: 25
   y_offset: 25
   font: Roboto
+  color: white
 
 caption_player:
-  text: INDIA TEAM SQUAD \nANNOUNCED
+  text: COOK & BALLANCE\n100* RUN STAND
+  line_spacing: 20
   blur: 0.4
   font: Roboto
-  size: 60
+  size: 50
   color: white
   stroke: white
   offset_x: 0
-  offset_y: -415
-  background: false
+  offset_y: 220
+  background: true
 #  background_color: rgba(150,93,14,0.6) # brown
 #  background_color_white: rgba(225,225,243,0.4)
-#  background_color: rgba(10,10,10,0.6) # black
-  background_color:  rgba(23,168,230,0.7) # blue
+  background_color: rgba(10,10,10,0.6) # black
+#  background_color:  rgba(23,168,230,0.7) # blue
 #  background_color_pink: rgba(150,14,93,0.5)
-  background_opacity: 0.2
-  background_height: 120
-  background_start_y: 415
+  background_opacity: 0.6
+  background_height: 170
+  background_start_y: 550
