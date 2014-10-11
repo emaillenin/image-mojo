@@ -8,5 +8,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  psych
+  psych (= 2.0.0)
   rmagick

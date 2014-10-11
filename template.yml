@@ -1,6 +1,6 @@
 
 image:
-  path: /Users/leninraj/Downloads/cook.jpg
+  path: /Users/leninraj/Downloads/kohli.jpg
 
 copyright:
   text: WWW.DUGGOUT.COM
@@ -11,28 +11,48 @@ copyright:
   font: Roboto
 
 hashtag:
-  text: EngVsInd
+  text: IndVsWI
   x_offset: 25
   y_offset: 25
   font: Roboto
   color: white
 
 caption_player:
-  text: COOK & BALLANCE\n100* RUN STAND
-  line_spacing: 20
+  text: Kohli - 62
+  line_spacing: 5
   blur: 0.4
-  font: Roboto
+  font: Futura Today
+  size: 60
+  color: white
+  stroke_width: 1
+  offset_x: 260
+  offset_y: -400
+  background: false
+#  background_color: rgba(150,93,14,0.8) # brown
+#  background_color: rgba(255,255,255,0.8) # white
+#  background_color: rgba(10,10,10,0.6) # black
+  background_color:  rgba(23,168,230,0.9) # blue
+#  background_color: rgba(150,14,93,0.5) # pink
+  background_opacity: 0.6
+  background_height: 140
+  background_start_y: 840
+
+caption_info:
+  text: ODI HALF-CENTURY\nafter a break of 8 innings!\nHis longest break\nsince his DEBUT!!
+  line_spacing: 5
+  blur: 0.4
+  font: Futura Today
   size: 50
   color: white
-  stroke: white
+  stroke_width: 1
   offset_x: 0
-  offset_y: 220
+  offset_y: 400
   background: true
-#  background_color: rgba(150,93,14,0.6) # brown
-#  background_color_white: rgba(225,225,243,0.4)
-  background_color: rgba(10,10,10,0.6) # black
-#  background_color:  rgba(23,168,230,0.7) # blue
-#  background_color_pink: rgba(150,14,93,0.5)
+#  background_color: rgba(150,93,14,0.8) # brown
+#  background_color: rgba(255,255,255,0.8) # white
+#  background_color: rgba(10,10,10,0.6) # black
+  background_color:  rgba(23,168,230,0.9) # blue
+#  background_color: rgba(150,14,93,0.5) # pink
   background_opacity: 0.6
-  background_height: 170
-  background_start_y: 550
+  background_height: 250
+  background_start_y: 920

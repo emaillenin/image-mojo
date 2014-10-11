@@ -26,11 +26,13 @@ copyright_box.draw(imgl)
 
 imgl.alpha(Magick::ActivateAlphaChannel)
 
+output = "#{File.dirname(template.image['path'])}/mojo_#{File.basename(template.image['path'])}"
+
 watermark_text = Magick::Draw.new
 watermark_text.annotate(imgl, start_x, start_y, end_x - 5, end_y - 10, template.copyright['text']) do
   self.gravity = Magick::EastGravity
   self.pointsize = 15
-  self.font_family = 'Arial'
+  self.font_family = 'Serif'
   self.font_weight = Magick::BoldWeight
   self.stroke = 'transparent'
   self.fill = 'white'
@@ -38,6 +40,8 @@ watermark_text.annotate(imgl, start_x, start_y, end_x - 5, end_y - 10, template.
   self.kerning = 1
   self.align = LeftAlign
 end
+
+imgl.write(output)
 
 unless template.hashtag.nil?
   watermark_text = Magick::Draw.new
@@ -53,7 +57,6 @@ unless template.hashtag.nil?
   end
 end
 
-output = "#{File.dirname(template.image['path'])}/mojo_#{File.basename(template.image['path'])}"
 
 template.all_templates.keys.select { |key| key.to_s.start_with?('caption') }.each do |caption|
   a = ImageAnnotate.new(src, imgl, template.all_templates[caption])
@@ -63,4 +66,4 @@ template.all_templates.keys.select { |key| key.to_s.start_with?('caption') }.eac
 end
 
 
-exit
+exit 0

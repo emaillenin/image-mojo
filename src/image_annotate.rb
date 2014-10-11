@@ -24,8 +24,8 @@ class ImageAnnotate
       self.font_weight = Magick::BoldWeight
       self.stroke = 'transparent'
       self.fill = caption['color']
-      self.stroke = caption['stroke']
-      self.stroke_width = 1
+      self.stroke = caption['stroke'] || caption['color']
+      self.stroke_width = caption['stroke_width'] || 1
       self.font_weight = Magick::BoldWeight
       # self.rotation = 270
       self.kerning = 1
