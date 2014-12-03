@@ -11,6 +11,7 @@ class ImageAnnotate
       background_caption = Magick::Draw.new
       background_caption.opacity(caption['background_opacity'])
       background_caption.fill(caption['background_color'])
+      background_caption.stroke_opacity(0)
       background_caption.rectangle(0, caption['background_start_y'], @source_image.columns, caption['background_start_y'] + caption['background_height'])
       background_caption.draw(@image_list)
       @image_list.alpha(Magick::ActivateAlphaChannel)
@@ -22,9 +23,9 @@ class ImageAnnotate
       self.pointsize = caption['size']
       self.font_family = caption['font']
       self.font_weight = Magick::BoldWeight
-      self.stroke = 'transparent'
+      # self.stroke = 'transparent'
       self.fill = caption['color']
-      self.stroke = caption['stroke'] || caption['color']
+      # self.stroke = caption['stroke'] || caption['color']
       self.stroke_width = caption['stroke_width'] || 1
       self.font_weight = Magick::BoldWeight
       # self.rotation = 270
