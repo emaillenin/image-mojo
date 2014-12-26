@@ -10,3 +10,10 @@ Image Mojo
 # to:
 
 ![Virat Kohli](https://scontent-a.xx.fbcdn.net/hphotos-xap1/t31.0-8/p843x403/10661671_785463531495111_7728021187341465124_o.jpg "Virat Kohli")
+
+
+Dev Box Setup
+=============
+
+1. brew install imagemagick
+2. brew install ghostscript

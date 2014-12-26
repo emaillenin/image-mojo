@@ -10,6 +10,8 @@
 /test/version_tmp/
 /tmp/
 
+assets
+
 ## Specific to RubyMotion:
 .dat*
 .repl_history
