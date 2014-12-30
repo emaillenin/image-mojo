@@ -1,34 +1,30 @@
 
 image:
-  path: /Users/leninraj/Downloads/3day1.jpg
+  path: /Users/leninraj/Downloads/test.jpg
 
 image_copyright:
   file: logo.png
   location: NorthEastGravity
 
 hashtag:
-  text: AusVsInd
+  text: ThankYouDhoni
   x_offset: 25
   y_offset: 25
   font: Roboto
   color: white
 
 caption_player:
-  text: "Day 1\nAustralia - 259/5"
+  text: "90 MATCHES\n4,876 RUNS\n38.09 AVERAGE\n 224 HIGH SCORE\n 33 FIFTIES\n 6 HUNDREDS\n 256 CATCHES\n38 STUMPINGS"
   line_spacing: 10
   blur: 0.4
   font: Serif
-  size: 70
+  size: 80
   color: white
-  offset_x: 0
-  offset_y: 230
   quote: false
-  background: true
+  background: false
 #  background_color: rgba(150,93,14,0.9) # brown
 #  background_color: rgba(255,255,255,0.8) # white
 #  background_color: rgba(10,10,10,0.9) # black
   background_color:  rgba(23,168,230,0.9) # blue
 #  background_color: rgba(150,14,93,0.5) # pink
   background_opacity: 0.9
-  background_height: 350
-  background_start_y: 498

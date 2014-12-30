@@ -12,13 +12,20 @@ class ImageAnnotate
       background_caption.opacity(caption['background_opacity'])
       background_caption.fill(caption['background_color'])
       background_caption.stroke_opacity(0)
-      background_caption.rectangle(0, caption['background_start_y'], @source_image.columns, caption['background_start_y'] + caption['background_height'])
+      background_caption.rectangle(0,
+                                   0.77 * @source_image.rows,
+                                   @source_image.columns,
+                                   @source_image.rows)
       background_caption.draw(@image_list)
       @image_list.alpha(Magick::ActivateAlphaChannel)
     end
 
     caption_text = Magick::Draw.new
-    caption_text.annotate(@image_list, @source_image.columns, @source_image.rows, @source_image.columns/2 + caption['offset_x'], @source_image.rows/2 + caption['offset_y'], caption['text']) do
+    caption_text.annotate(@image_list,
+                          @source_image.columns,
+                          @source_image.rows,
+                          @source_image.columns/2,
+                          text_offset * @source_image.rows, caption['text']) do
       self.gravity = Magick::CenterGravity
       self.pointsize = caption['size']
       self.font_family = caption['font']
@@ -27,12 +34,18 @@ class ImageAnnotate
       self.fill = caption['color']
       # self.stroke = caption['stroke'] || caption['color']
       self.stroke_width = caption['stroke_width'] || 1
-      self.font_weight = Magick::BoldWeight
       # self.rotation = 270
       self.kerning = 1
       self.interline_spacing = caption['line_spacing'] || 5
       self.align = CenterAlign
     end
     @image_list
+  end
+
+  def text_offset
+    if @caption['text'].to_s.count("\n") == 2
+      return 0.79
+    end
+    0.28
   end
 end
