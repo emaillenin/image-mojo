@@ -13,7 +13,7 @@ class ImageAnnotate
       background_caption.fill(caption['background_color'])
       background_caption.stroke_opacity(0)
       background_caption.rectangle(0,
-                                   0.77 * @source_image.rows,
+                                   0.8 * @source_image.rows,
                                    @source_image.columns,
                                    @source_image.rows)
       background_caption.draw(@image_list)
@@ -44,8 +44,8 @@ class ImageAnnotate
 
   def text_offset
     if @caption['text'].to_s.count("\n") == 2
-      return 0.79
+      return 0.8
     end
-    0.28
+    0.88
   end
 end

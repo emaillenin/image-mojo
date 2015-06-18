@@ -20,7 +20,7 @@ image_list = Magick::ImageList.new
 image_list.from_blob(File.open(base_image_path).read)
 image_list.alpha(Magick::ActivateAlphaChannel)
 
-output = "#{File.dirname(base_image_path)}/mojo_#{File.basename(base_image_path)}"
+output = "#{File.dirname(base_image_path)}/mojo_#{Time.now.strftime('%Y%m%d')}_#{File.basename(base_image_path)}"
 FileUtils::copy(base_image_path, output)
 
 
