@@ -24,7 +24,7 @@ class ImageAnnotate
     caption_text.annotate(@image_list,
                           @source_image.columns,
                           @source_image.rows,
-                          @source_image.columns/2,
+                          @source_image.columns/2 - 500,
                           text_offset * @source_image.rows, caption['text']) do
       self.gravity = Magick::CenterGravity
       self.pointsize = caption['size']
@@ -37,7 +37,7 @@ class ImageAnnotate
       # self.rotation = 270
       self.kerning = 1
       self.interline_spacing = caption['line_spacing'] || 5
-      self.align = CenterAlign
+      self.align = LeftAlign
     end
     @image_list
   end
@@ -46,6 +46,6 @@ class ImageAnnotate
     if @caption['text'].to_s.count("\n") == 2
       return 0.8
     end
-    0.88
+    0.28
   end
 end
